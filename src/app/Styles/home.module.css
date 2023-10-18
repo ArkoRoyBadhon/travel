@@ -1,0 +1,128 @@
+.relative {
+  position: relative;
+}
+
+.bannerArea {
+  width: 800px;
+  margin: 0px auto;
+  background-color: "yellow";
+  height: 150px;
+}
+.bannerBox1 {
+  position: absolute;
+  top: -100px;
+  left: -5%;
+  width: 250px;
+  height: 200px;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+.bannerBox2 {
+  position: absolute;
+  top: -100px;
+  left: 35.5%;
+  width: 250px;
+  height: 200px;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+.bannerBox3 {
+  position: absolute;
+  top: -100px;
+  left: 75%;
+  width: 250px;
+  height: 200px;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+/* @media screen and (min-width: 300px) and (max-width: 480px) { */
+@media screen and (max-width: 767px) {
+  .relative {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 30px;
+    margin-top: 20px;
+  }
+  .bannerArea {
+    max-width: 100%;
+  }
+  .bannerBox1 {
+    position: static;
+    display: inline-block;
+    width: 90%;
+    margin: 0px auto;
+    height: 800px;
+    /* color: #fff; */
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 10px 14px;
+    cursor: pointer;
+    margin-top: 40px;
+  }
+  .bannerBox2 {
+    position: static;
+    width: 90%;
+    height: 400px;
+    margin: 0px auto;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 10px 14px;
+    cursor: pointer;
+  }
+  .bannerBox3 {
+    position: static;
+    width: 90%;
+    margin: 0px auto;
+    height: 400px;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 10px 14px;
+    cursor: pointer;
+  }
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+
+    .bannerArea {
+      max-width: 100%;
+    }
+    .bannerBox1 {
+      width: 30%;
+      margin: 0px auto;
+      height: 200px;
+      background-color: #fff;
+      border-radius: 5px;
+      padding: 10px 14px;
+      cursor: pointer;
+    }
+    .bannerBox2 {
+      width: 30%;
+      height: 200px;
+      margin: 0px auto;
+      background-color: #fff;
+      border-radius: 5px;
+      padding: 10px 14px;
+      cursor: pointer;
+    }
+    .bannerBox3 {
+      width: 30%;
+      margin: 0px auto;
+      height: 200px;
+      background-color: #fff;
+      border-radius: 5px;
+      padding: 10px 14px;
+      cursor: pointer;
+    }
+  }
