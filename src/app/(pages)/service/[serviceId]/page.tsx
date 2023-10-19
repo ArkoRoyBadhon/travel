@@ -1,19 +1,23 @@
 "use client";
+import { usePostBookingMutation } from "@/redux/api/bookingApi";
 import {
   useGetServiceByIdQuery,
   usePostReviewMutation,
 } from "@/redux/api/serviceApi";
-import { Button, Col, Divider, Input, Row, Select, Space } from "antd";
+import { getUserInfo } from "@/services/auth.service";
+import { Button, Col, Divider, Input, Row, Select, Space, message } from "antd";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const DetailPage = () => {
   const [commentValue, setCommentValue] = useState("");
+  const [authId, setAuthId] = useState<string | undefined>("");
   const [ratingValue, setRatingValue] = useState<number | null>();
   const serviceId = usePathname().slice(9);
   const { data: singleService } = useGetServiceByIdQuery(serviceId);
   const [postReview] = usePostReviewMutation();
+  const [postBooking] = usePostBookingMutation();
 
   const handleReviewSubmit = () => {
     if (commentValue) {
@@ -28,11 +32,31 @@ const DetailPage = () => {
     }
   };
 
+  const handleBooking = async () => {
+    const payload = {
+      bookedBy: authId,
+      serviceId: serviceId,
+    };
+
+    // console.log("post", data);
+    const result = await postBooking(payload);
+    if (result) {
+      message.success("Booking success");
+    } else {
+      message.error("Booking Failed");
+    }
+  };
+
+  useEffect(() => {
+    const info = getUserInfo() as any;
+    if (info) setAuthId(info?.userId || "");
+  }, []);
+
   return (
     <div
       style={{
         padding: "0 40px",
-        marginBottom: "30px"
+        marginBottom: "30px",
       }}
     >
       <h5
@@ -106,8 +130,18 @@ const DetailPage = () => {
                     marginTop: "10px",
                   }}
                   type="primary"
+                  onClick={() => handleBooking()}
                 >
                   Book Now
+                </Button>
+                <Button
+                  style={{
+                    marginTop: "10px",
+                    marginLeft: "5px",
+                  }}
+                  type="primary"
+                >
+                  Addd to WishList
                 </Button>
               </div>
             </Col>
