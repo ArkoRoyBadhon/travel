@@ -1,7 +1,6 @@
 "use client";
 
 import { Layout } from "antd";
-import UMBreadCrumb from "./UMBreadCrumb";
 import Navbar from "./Header";
 const { Content } = Layout;
 
@@ -15,19 +14,6 @@ const Contents = ({ children }: { children: React.ReactNode }) => {
       }}
     >
       <Navbar />
-
-      {/* <UMBreadCrumb
-        items={[
-          {
-            label: `${base}`,
-            link: `/${base}`,
-          },
-          {
-            label: `student`,
-            link: `/${base}/student`,
-          },
-        ]}
-      /> */}
       <div
         style={
           {

@@ -8,7 +8,6 @@ import FormInput from "@/components/forms/FormInput";
 import { useUserLoginMutation } from "@/redux/api/authApi";
 import { useRouter } from "next/navigation";
 import { storeUserInfo } from "@/services/auth.service";
-import { useGetAllServicesQuery } from "@/redux/api/serviceApi";
 
 type FormValues = {
   email: string;

@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import React from "react";
-import img1 from "../../../assets/pexels-arthouse-studio-4534200.jpg";
+import img1 from "../../../assets/pexels-pixabay-355872.jpg";
 import styles from "../../Styles/home.module.css";
 import BrandsHome from "@/components/home/brands";
 import HotDeals from "@/components/home/HotDeals";

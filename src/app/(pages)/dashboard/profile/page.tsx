@@ -1,8 +1,12 @@
-"use client";
-import React from "react";
+import ProfilePage from '@/components/dashboard/Profile';
+import React from 'react';
 
-const ProfilePage = () => {
-  return <div>Welcome to your Profile</div>;
+const page = () => {
+  return (
+    <div>
+      <ProfilePage />
+    </div>
+  );
 };
 
-export default ProfilePage;
+export default page;

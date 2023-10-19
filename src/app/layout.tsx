@@ -25,7 +25,9 @@ export default function RootLayout({
             content="width=device-width, initial-scale=1.0"
           />
         </Head>
-        <body className={inter.className}>{children}</body>
+        <body suppressHydrationWarning={true} className={inter.className}>
+          {children}
+        </body>
       </html>
     </Providers>
   );
