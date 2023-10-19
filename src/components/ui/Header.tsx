@@ -19,6 +19,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { MenuOutlined } from "@ant-design/icons";
 import styles from "../../app/Styles/navbar.module.css";
 import Link from "next/link";
+import { useAppSelector } from "@/redux/hooks";
 
 const HeaderNav = () => {
   const [visible, setVisible] = useState(false);
@@ -26,6 +27,7 @@ const HeaderNav = () => {
 
   const router = useRouter();
   const currentPath = usePathname();
+  const {count} = useAppSelector(state => state.cart)
 
   const showDrawer = () => {
     setVisible(true);
@@ -52,6 +54,9 @@ const HeaderNav = () => {
       </Menu.Item>
       <Menu.Item key="3">
         <Link href="/dashboard">Dashboard</Link>
+      </Menu.Item>
+      <Menu.Item key="4">
+        <Link href="/cart">Cart({count})</Link>
       </Menu.Item>
     </Menu>
   );

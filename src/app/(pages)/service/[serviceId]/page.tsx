@@ -4,10 +4,12 @@ import {
   useGetServiceByIdQuery,
   usePostReviewMutation,
 } from "@/redux/api/serviceApi";
+import { useAppDispatch } from "@/redux/hooks";
+import { addToCart } from "@/redux/slices/cartSlice";
 import { getUserInfo } from "@/services/auth.service";
 import { Button, Col, Divider, Input, Row, Select, Space, message } from "antd";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const DetailPage = () => {
@@ -18,6 +20,8 @@ const DetailPage = () => {
   const { data: singleService } = useGetServiceByIdQuery(serviceId);
   const [postReview] = usePostReviewMutation();
   const [postBooking] = usePostBookingMutation();
+  const router = useRouter();
+  const dispatch = useAppDispatch();
 
   const handleReviewSubmit = () => {
     if (commentValue) {
@@ -140,8 +144,13 @@ const DetailPage = () => {
                     marginLeft: "5px",
                   }}
                   type="primary"
+                  onClick={() => {
+                    router.push("/cart");
+                    dispatch(addToCart(singleService));
+                    message.success("added to cart")
+                  }}
                 >
-                  Addd to WishList
+                  Addd to Cart
                 </Button>
               </div>
             </Col>
