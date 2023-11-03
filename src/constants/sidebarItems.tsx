@@ -59,12 +59,12 @@ export const sidebarItems = (role: string) => {
           ),
           key: `/dashboard/admin/manage-service`,
         },
-        {
-          label: (
-            <Link href={`/dashboard/admin/manage-booking`}>Manage Booking</Link>
-          ),
-          key: `/dashboard/admin/manage-booking`,
-        },
+        // {
+        //   label: (
+        //     <Link href={`/dashboard/admin/manage-booking`}>Manage Booking</Link>
+        //   ),
+        //   key: `/dashboard/admin/manage-booking`,
+        // },
         {
           label: (
             <Link href={`/dashboard/admin/manage-content`}>Manage Content</Link>
@@ -103,7 +103,7 @@ export const sidebarItems = (role: string) => {
 
   // if(role )
   if (role === USER_ROLE.SUPER_ADMIN) return superAdminSidebarItems;
-  else if ("admin" === USER_ROLE.ADMIN) return adminSidebarItems;
+  else if (role === USER_ROLE.ADMIN) return adminSidebarItems;
   else {
     return defaultSidebarItems;
   }

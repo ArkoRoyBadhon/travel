@@ -12,6 +12,15 @@ const authApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: ["user"],
     }),
+    getAllNormalUsers: build.query({
+      query: () => {
+        return {
+          url: `/normal-users`,
+          method: "GET",
+        };
+      },
+      providesTags: ["user"],
+    }),
     getUserById: build.query({
       query: (UserId: string | undefined) => {
         return {
@@ -29,12 +38,21 @@ const authApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: ["user"],
     }),
+    deleteUser: build.mutation({
+      query: (UserId) => ({
+        url: `/users/${UserId}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["user"],
+    }),
   }),
   overrideExisting: false,
 });
 
 export const {
   useUserLoginMutation,
+  useGetAllNormalUsersQuery,
   useGetUserByIdQuery,
   useUpdateUserMutation,
+  useDeleteUserMutation
 } = authApi;

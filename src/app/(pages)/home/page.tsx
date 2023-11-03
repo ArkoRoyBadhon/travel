@@ -7,6 +7,9 @@ import BrandsHome from "@/components/home/brands";
 import HotDeals from "@/components/home/HotDeals";
 import DiscountHome from "@/components/home/Discount";
 import { useGetAllServicesQuery } from "@/redux/api/serviceApi";
+import UpcomingService from "@/components/home/UpcomingService";
+import NewsSection from "@/components/home/NewsSection";
+import ClientReview from "@/components/home/ClientReview";
 
 const HomePage = () => {
   const { data } = useGetAllServicesQuery(undefined);
@@ -26,7 +29,7 @@ const HomePage = () => {
         <div
           style={{
             background: "rgba(0, 0, 0, 0.5)",
-            color: "white",
+            color: "#edf2f4",
             position: "absolute",
             top: 0,
             left: 0,
@@ -50,7 +53,11 @@ const HomePage = () => {
         </div>
       </div>
       <div className={`${styles.relative} ${styles.bannerArea}`}>
-        <div className={`ShadowEffect hoverShadow ${styles.bannerBox1}`}>
+        <div
+          style={{ background: "#364d79", color: "#edf2f4" }}
+          // style={{ background: "linear-gradient(to right, #a1c4fd, #c2e9fb)" }}
+          className={`ShadowEffect hoverShadow ${styles.bannerBox1}`}
+        >
           <h5
             style={{
               textAlign: "center",
@@ -69,7 +76,11 @@ const HomePage = () => {
             We are providing the best price in the whole market.
           </p>
         </div>
-        <div className={`ShadowEffect hoverShadow ${styles.bannerBox2}`}>
+        <div
+          style={{ background: "#364d79", color: "#edf2f4" }}
+          // style={{ background: "linear-gradient(to right, #a1c4fd, #c2e9fb)" }}
+          className={`ShadowEffect hoverShadow ${styles.bannerBox2}`}
+        >
           <h5
             style={{
               textAlign: "center",
@@ -88,7 +99,11 @@ const HomePage = () => {
             We are providing the best price in the whole market.
           </p>
         </div>
-        <div className={`ShadowEffect hoverShadow ${styles.bannerBox3}`}>
+        <div
+          style={{ background: "#364d79", color: "#edf2f4" }}
+          // style={{ background: "linear-gradient(to right, #a1c4fd, #c2e9fb)" }}
+          className={`ShadowEffect hoverShadow ${styles.bannerBox3}`}
+        >
           <h5
             style={{
               textAlign: "center",
@@ -111,13 +126,10 @@ const HomePage = () => {
 
       <HotDeals />
       <DiscountHome />
+      <UpcomingService />
       <BrandsHome />
-      <div
-        className=""
-        style={{
-          height: "100vh",
-        }}
-      ></div>
+      <ClientReview />
+      <NewsSection />
     </div>
   );
 };

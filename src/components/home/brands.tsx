@@ -6,7 +6,7 @@ const BrandsHome = () => {
   return (
     <div style={{
       padding: "0px 40px",
-      marginBottom: "20px",
+      marginBottom: "40px",
     }}>
       <h5 style={{ fontSize: "20px", marginBottom: "10px" }}>Our Partners</h5>
       <Marquee gradient={true} speed={50} pauseOnHover={true}>

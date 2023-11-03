@@ -3,7 +3,7 @@ import img1 from "../../assets/pexels-pixabay-289586.jpg";
 import { Button, Card, Col, Row } from "antd";
 import Meta from "antd/es/card/Meta";
 
-const HotDeals = () => {
+const UpcomingService = () => {
   return (
     <div
       style={{
@@ -11,7 +11,7 @@ const HotDeals = () => {
         marginBottom: "20px",
       }}
     >
-      <h5 style={{ fontSize: "20px", marginBottom: "10px" }}>Available Service</h5>
+      <h5 style={{ fontSize: "20px", marginBottom: "10px" }}>Upcoming Service</h5>
       <div className="">
         <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
           <Col className="gutter-row" span={6}>
@@ -160,4 +160,4 @@ const HotDeals = () => {
   );
 };
 
-export default HotDeals;
+export default UpcomingService;

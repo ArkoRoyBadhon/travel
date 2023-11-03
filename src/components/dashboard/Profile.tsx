@@ -11,6 +11,7 @@ import { getFromLocalStorage } from "@/utils/local-storage";
 import { Button, Divider, Space } from "antd";
 import React, { useState } from "react";
 import Form from "@/components/forms/Form";
+import Loading from "@/app/loading";
 
 type FormValues = {
   name: string | undefined;
@@ -31,7 +32,12 @@ const ProfilePage = () => {
   // const UserId = userInfo?.userId as string;
   const userInfo: any = authToken ? decodedToken(authToken as string) : null;
   const UserId = userInfo?.userId as string;
-  const { data: userData } = useGetUserByIdQuery(UserId && UserId);
+  const { data: userData, isLoading } = useGetUserByIdQuery(UserId && UserId);
+
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     try {

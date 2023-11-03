@@ -27,7 +27,7 @@ const HeaderNav = () => {
 
   const router = useRouter();
   const currentPath = usePathname();
-  const {count} = useAppSelector(state => state.cart)
+  const { count } = useAppSelector((state) => state.cart);
 
   const showDrawer = () => {
     setVisible(true);
@@ -112,6 +112,23 @@ const HeaderNav = () => {
   //   };
   // }, [currentPath, cngWidth]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      if (width > 767) {
+        setVisible(false); // Adjust the visibility of the menu for different screen sizes
+      }
+    };
+
+    // Attach the resize event listener
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup function to remove the listener when the component unmounts
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <AntHeader style={{ padding: "0 40px", backgroundColor: "#fff" }}>
       <Row
@@ -121,7 +138,39 @@ const HeaderNav = () => {
           height: "100%",
         }}
       >
-        <div className={`${styles.desktopNav}`}>{menu}</div>
+        <div>
+          <span style={{ fontWeight: "700", color: "skyblue" }}>Travel</span>
+          <b>Service</b>
+        </div>
+        {/* <div className={`${styles.desktopNav}`}>{menu}</div> */}
+        <div className={`${styles.desktopNav}`}>
+          <div style={{ display: "flex" }}>
+            <Link
+              style={{ color: "black", margin: "0px 10px", fontWeight: "600" }}
+              href="/home"
+            >
+              Home
+            </Link>
+            <Link
+              style={{ color: "black", margin: "0px 10px", fontWeight: "600" }}
+              href="/service"
+            >
+              Service
+            </Link>
+            <Link
+              style={{ color: "black", margin: "0px 10px", fontWeight: "600" }}
+              href="/dashboard"
+            >
+              Dashboard
+            </Link>
+            <Link
+              style={{ color: "black", margin: "0px 10px", fontWeight: "600" }}
+              href="/cart"
+            >
+              Cart({count})
+            </Link>
+          </div>
+        </div>
 
         <div className={`${styles.mobileNav}`}>
           <Button type="primary" onClick={showDrawer}>
@@ -138,7 +187,7 @@ const HeaderNav = () => {
             {menu}
           </Drawer>
         </div>
-        <Dropdown menu={{ items }}>
+        <Dropdown className={`${styles.desktopNav}`} menu={{ items }}>
           <a>
             <Space wrap size={16}>
               <Avatar size="large" icon={<UserOutlined />} />

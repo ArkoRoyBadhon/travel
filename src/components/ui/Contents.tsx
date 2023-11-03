@@ -2,6 +2,7 @@
 
 import { Layout } from "antd";
 import Navbar from "./Header";
+import Footer from "./Footer";
 const { Content } = Layout;
 
 const Contents = ({ children }: { children: React.ReactNode }) => {
@@ -23,6 +24,7 @@ const Contents = ({ children }: { children: React.ReactNode }) => {
       >
         {children}
       </div>
+      <Footer />
     </Content>
   );
 };
